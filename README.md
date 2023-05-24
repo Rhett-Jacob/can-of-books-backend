@@ -19,7 +19,8 @@ Made with Node, Express, MongoDB Atlas
 ## Change Log
 
 * 05/22/23 4:00pm - Setting up the basics.
-* 05/22/23 5:00pm - Created /books route.
+* 05/22/23 5:00pm - Created /books route. Added Get.
+* 05/24/23 12:45pm - Added Post.
 
 ## Estimates
 
@@ -34,6 +35,12 @@ Estimate of time needed to complete: 60 min
 Start time: 4:10p
 Finish time: 5:00p
 Actual time needed to complete: 50min
+
+Name of feature: Post requests accepted
+Estimate of time needed to complete: 50min
+Start time: 12:10p
+Finish time: 12:45p
+Actual time needed to complete: 35min
 
 Name of feature: 
 Estimate of time needed to complete: 
