@@ -6,9 +6,11 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const Books = require('./Model/books');
+// const bookHandler = require('./Modules/bookHandler');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = process.env.PORT;
 mongoose.connect(process.env.MONGODB_URL);
 const db = mongoose.connection;
@@ -30,4 +32,24 @@ app.get('/books', async (request, response) => {
   }
 })
 
+app.post('/books', (request, response) => {
+  const data = request.body;
+  console.log(data);
+
+  Books.create(data)
+    .then(res => {response.status(201).json(res)})
+    .catch(err => {response.status(501).send(err)})
+})
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
+
+
+// app.post('/books', async (req, res) => {
+//   try{
+//     const newBook = await Books.create(req.body);
+//     res.status(201).json(newBook);
+//   } catch(err){
+//     console.error(err);
+//     res.status(500).json(err);
+//   }
+// })
