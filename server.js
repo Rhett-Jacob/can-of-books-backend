@@ -41,6 +41,13 @@ app.post('/books', (request, response) => {
     .catch(err => {response.status(501).send(err)})
 })
 
+app.delete('/books/:id', (request, response) => {
+  let id = request.params.id;
+  Books.findByIdAndDelete(id)
+    .then(deletedBook => response.status(200).send(deletedBook))
+    .catch(err => response.status(404).send(err))
+})
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 
