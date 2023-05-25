@@ -52,14 +52,7 @@ app.delete("/books/:id", (request, response) => {
     .catch((err) => response.status(404).send(err));
 });
 
+
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
-// app.post('/books', async (req, res) => {
-//   try{
-//     const newBook = await Books.create(req.body);
-//     res.status(201).json(newBook);
-//   } catch(err){
-//     console.error(err);
-//     res.status(500).json(err);
-//   }
-// })
