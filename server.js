@@ -46,7 +46,7 @@ app.post("/books", (request, response) => {
 });
 
 app.delete("/books/:id", (request, response) => {
-  let id = "request.params.id";
+  let id = request.params.id;
   Books.findByIdAndDelete(id)
     .then((deletedBook) => response.status(200).send(deletedBook))
     .catch((err) => response.status(404).send(err));
