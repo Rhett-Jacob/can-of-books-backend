@@ -5,8 +5,9 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const axios = require("axios");
-const Books = require("./Model/books.js");
+const Books = require("./model/books.js");
 const booksHandler = require("./modules/booksHandler.js");
+const ApiError = require("./error/ApiError.js");
 
 //import global variables
 const PORT = process.env.PORT;
@@ -32,9 +33,11 @@ app.post("/books", booksHandler.postBook);
 app.delete("/books/:id", booksHandler.deleteBook);
 
 //handle errors
-// app.use((err, req, res, next)=>{
-
-// });
+app.use((err, req, res, next) => {
+  if(err instanceof ApiError){
+    res.status(err.code).json(err.message);}
+  res.status(500).json("Server Error");
+});
 
 //server listens to given domain and port
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
