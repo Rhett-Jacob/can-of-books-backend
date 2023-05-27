@@ -14,7 +14,6 @@ booksHandler.getAllBooks = async (request, response, next) => {
     const books = await Books.find();
     response.status(200).json({ data: books });
   } catch (err) {
-    next(ApiError)
     response.status(404).send(err);
   }
 };
