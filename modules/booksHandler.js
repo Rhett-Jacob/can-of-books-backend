@@ -1,6 +1,6 @@
 "use strict";
 
-const Books = require("../model/books.js");
+const Books = require("../model/books");
 // const ApiError = require("../error/ApiError.js");
 
 let booksHandler = {};
