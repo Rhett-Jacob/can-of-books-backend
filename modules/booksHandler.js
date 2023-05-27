@@ -20,7 +20,7 @@ booksHandler.getAllBooks = async (request, response, next) => {
 
 booksHandler.postBook = async (request, response, next) => {
   const data = request.body;
-  console.log(data);
+  // console.log(data);
 
   Books.create(data)
     .then((res) => {
