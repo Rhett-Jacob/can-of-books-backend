@@ -4,8 +4,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const axios = require("axios");
-const Books = require("./model/books.js");
 const booksHandler = require("./modules/booksHandler.js");
 const ApiError = require("./error/ApiError.js");
 
