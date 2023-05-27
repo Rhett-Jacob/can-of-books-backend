@@ -5,7 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const booksHandler = require("./modules/booksHandler.js");
-const ApiError = require("./error/ApiError.js");
+// const ApiError = require("./error/ApiError.js");
 
 //import global variables
 const PORT = process.env.PORT;
@@ -32,8 +32,8 @@ app.delete("/books/:id", booksHandler.deleteBook);
 
 //handle errors
 app.use((err, req, res, next) => {
-  if(err instanceof ApiError){
-    res.status(err.code).json(err.message);}
+  // if(err instanceof ApiError){
+  //   res.status(err.code).json(err.message);}
   res.status(500).json("Server Error");
 });
 
