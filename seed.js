@@ -5,7 +5,7 @@ require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URL);
 
-const Book = require('./Model/book');
+const Book = require('./modules/books');
 
 //create a new Book and save it to DB
 async function seed() {
