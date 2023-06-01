@@ -34,11 +34,12 @@ booksHandler.postBook = async (request, response, next) => {
 booksHandler.updateBook = async (request, response, next) => {
   const id = request.params.id;
   const data = request.body;
-  console.log(data);
+  // console.log(data);
 
   Books.findByIdAndUpdate(id,data, {new:true, overwrite:true})
     .then((updatedBook) => {
-      response.status(204).json(updatedBook);
+      response.status(201).send(updatedBook);
+      console.log(updatedBook);
     })
     .catch((err) => {
       response.status(501).send(err);
