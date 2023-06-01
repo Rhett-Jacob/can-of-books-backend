@@ -28,6 +28,8 @@ app.get("/books", booksHandler.getAllBooks);
 
 app.post("/books", booksHandler.postBook);
 
+app.put("/books/:id", booksHandler.updateBook);
+
 app.delete("/books/:id", booksHandler.deleteBook);
 
 //handle errors
