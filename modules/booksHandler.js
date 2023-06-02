@@ -18,7 +18,7 @@ booksHandler.getAllBooks = async (request, response, next) => {
   }
 };
 
-booksHandler.postBook = async (request, response, next) => {
+booksHandler.postBook = (request, response, next) => {
   const data = request.body;
   // console.log(data);
 
@@ -31,7 +31,7 @@ booksHandler.postBook = async (request, response, next) => {
     });
 };
 
-booksHandler.updateBook = async (request, response, next) => {
+booksHandler.updateBook = (request, response, next) => {
   const id = request.params.id;
   const data = request.body;
   // console.log(data);
@@ -39,14 +39,14 @@ booksHandler.updateBook = async (request, response, next) => {
   Books.findByIdAndUpdate(id,data, {new:true, overwrite:true})
     .then((updatedBook) => {
       response.status(201).send(updatedBook);
-      console.log(updatedBook);
+      // console.log(updatedBook);
     })
     .catch((err) => {
       response.status(501).send(err);
     });
 };
 
-booksHandler.deleteBook = async (request, response, next) => {
+booksHandler.deleteBook = (request, response, next) => {
   let id = request.params.id;
   Books.findByIdAndDelete(id)
     .then((deletedBook) => response.status(200).send(deletedBook))
