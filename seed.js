@@ -13,7 +13,7 @@ async function seed() {
         title: 'The farmer goes north',
         description: 'After running out of good soil, a farmer has to make a decision to leave his village or risk starvation.',
         status: '3 years old',
-        email:'jacobbassett@gmail.com'
+        email:'rhettbeardemphl@gmail.com'
     })
 
     await book1.save()
@@ -25,7 +25,7 @@ async function seed() {
         title: 'The farmer goes east',
         description: 'After running out of good soil again, a farmer has to make a decision to leave his village or risk starvation.',
         status: '2 years old',
-        email:'jacobbassett@gmail.com'
+        email:'rhettbeardemphl@gmail.com'
     })
         .then(() => console.log('Saved book to the DB.'))
         .catch((err) => console.error(err));
@@ -34,7 +34,7 @@ async function seed() {
         title: 'The farmer goes south',
         description: 'After running out of good soil for a third time, a farmer has to make a decision to leave his village or risk starvation.',
         status: '1 year old',
-        email:'jacobbassett@gmail.com'
+        email:'rhettbeardemphl@gmail.com'
     })
         .then(() => console.log('Saved book to the DB.'))
         .catch((err) => console.error(err));
