@@ -10,8 +10,9 @@ booksHandler.defaultBooksRoute = (request, response, next) => {
 };
 
 booksHandler.getAllBooks = async (request, response, next) => {
+  let queryObject  = {email: request.user.email}
   try {
-    const books = await Books.find();
+    const books = await Books.find(queryObject);
     response.status(200).json({ data: books });
   } catch (err) {
     response.status(404).send(err);
@@ -19,10 +20,9 @@ booksHandler.getAllBooks = async (request, response, next) => {
 };
 
 booksHandler.postBook = (request, response, next) => {
-  const data = request.body;
-  // console.log(data);
-
-  Books.create(data)
+  const updatedObj = {...request.body, email:request.user.email}
+  console.log('bookshandler hello');
+  Books.create(updatedObj)
     .then((res) => {
       response.status(201).json(res);
     })
@@ -32,14 +32,14 @@ booksHandler.postBook = (request, response, next) => {
 };
 
 booksHandler.updateBook = (request, response, next) => {
+  console.log('hello we hit')
   const id = request.params.id;
-  const data = request.body;
-  // console.log(data);
+  const data = {...request.body, email:request.user.email}
+  console.log(data);
 
   Books.findByIdAndUpdate(id,data, {new:true, overwrite:true})
     .then((updatedBook) => {
       response.status(201).send(updatedBook);
-      // console.log(updatedBook);
     })
     .catch((err) => {
       response.status(501).send(err);

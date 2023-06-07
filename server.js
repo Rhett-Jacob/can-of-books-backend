@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const booksHandler = require("./modules/booksHandler.js");
+const verifyUser = require("./modules/Authorize.js");
 // const ApiError = require("./error/ApiError.js");
 
 //import global variables
@@ -24,6 +25,8 @@ db.once("open", () => console.log("Mongoose is connected"));
 //setup route handlers
 app.get("/", booksHandler.defaultBooksRoute);
 
+app.use(verifyUser);
+
 app.get("/books", booksHandler.getAllBooks);
 
 app.post("/books", booksHandler.postBook);
@@ -36,7 +39,7 @@ app.delete("/books/:id", booksHandler.deleteBook);
 app.use((err, req, res, next) => {
   // if(err instanceof ApiError){
   //   res.status(err.code).json(err.message);}
-  res.status(500).json("Server Error");
+  res.status(500).json(err);
 });
 
 //server listens to given domain and port
