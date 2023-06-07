@@ -21,7 +21,7 @@ booksHandler.getAllBooks = async (request, response, next) => {
 
 booksHandler.postBook = (request, response, next) => {
   const updatedObj = {...request.body, email:request.user.email}
-  console.log('bookshandler hello');
+  // console.log('bookshandler hello');
   Books.create(updatedObj)
     .then((res) => {
       response.status(201).json(res);
@@ -32,10 +32,10 @@ booksHandler.postBook = (request, response, next) => {
 };
 
 booksHandler.updateBook = (request, response, next) => {
-  console.log('hello we hit')
+  // console.log('hello we hit')
   const id = request.params.id;
   const data = {...request.body, email:request.user.email}
-  console.log(data);
+  // console.log(data);
 
   Books.findByIdAndUpdate(id,data, {new:true, overwrite:true})
     .then((updatedBook) => {

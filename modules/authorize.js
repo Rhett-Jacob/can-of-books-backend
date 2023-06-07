@@ -14,7 +14,7 @@ function verifyUser(request, response, next) {
   try {
     // Grabbing Jwt Token from request headers
     const token = request.headers.authorization.split(' ')[1];
-    console.log(token);
+    // console.log(token);
 
     jwt.verify(token, getKey, {}, valid);
   } catch (error) {
