@@ -5,7 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const booksHandler = require("./modules/booksHandler.js");
-const verifyUser = require("./modules/Authorize.js");
+const verifyUser = require("./authorize.js");
 // const ApiError = require("./error/ApiError.js");
 
 //import global variables
